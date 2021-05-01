@@ -8,6 +8,7 @@ import 'package:esprit/static.dart';
 import 'package:esprit/src/utils/my_urls.dart';
 import 'package:esprit/order/buycoursescreen.dart';
 import 'package:esprit/screens/courses/laststep.dart';
+import 'package:esprit/screens/rating/rating.dart';
 
 class AllCourseInfo extends StatefulWidget {
   final String title;
@@ -435,10 +436,15 @@ class _AllCourseInfoState extends State<AllCourseInfo> {
               color: AppThemeColors.darkBlue.withOpacity(0.2),
               offset: Offset(0, 3))
         ], color: AppThemeColors.nearlyWhite, shape: BoxShape.circle),
-        child: Icon(
-          Icons.star,
-          size: 4 * SizeConfig1.heightMultiplier,
+        child: IconButton(
+          icon: Icon(Icons.star),
+          iconSize: 30,
           color: AppThemeColors.darkBlue,
+          onPressed: () {
+            Navigator.pop(context);
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => Rating()));
+          },
         ),
       ),
     );
